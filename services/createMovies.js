@@ -19,13 +19,9 @@ exports.create = async ({ name, language, genres }) => {
         image: { medium: "/images/no-image.png" },
       });
     } else {
-      data.movies[index] = {
-        id: data.movies[index].id,
-        name,
-        language,
-        genres,
-        image: data.movies[index].image,
-      };
+      const { id, image } = data.movies[index];
+
+      data.movies[index] = { id, name, language, genres, image };
     }
 
     return await newMovies.put(data);

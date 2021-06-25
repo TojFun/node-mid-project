@@ -32,9 +32,19 @@
             <button>Edit Users</button>
           </a>
         </span>
+
         <% } %>
       </div>
     </main>
+
+    <% if (status === "created") { %>
+    <div class="message-panel">
+      <div>
+        <h3>Your movie has been created successfully.</h3>
+      </div>
+    </div>
+    <% } %>
+
     <footer>
       <button id="go-back" onclick="logout()">Log Out</button>
     </footer>
