@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <main class="login">
+      <div class="login-form">
+        <h1>Login</h1>
+
+        <form action="/login" method="POST">
+          <label for="username" id="username-title">User Name: </label>
+          <input type="text" name="username" id="username" required />
+
+          <label for="username" id="password-title">Password: </label>
+          <input type="password" name="password" id="password" required />
+
+          <input type="submit" value="Login" id="submit" />
+        </form>
+
+        <div>
+          <% if (status === "wrong") { %>
+          <h2>Wrong username or password.</h2>
+          <% } else if (status === "outOfCredits") { %>
+          <h2>You are out of credits.</h2>
+          <% } %>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

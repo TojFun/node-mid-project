@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/movies.css" />
+
+    <title>Search Movies</title>
+  </head>
+  <body class="movies search">
+    <main>
+      <h1>Search For Movies</h1>
+
+      <form action="/results" method="get">
+        <label for="name" id="name-title">Name: </label>
+        <input type="text" name="name" id="name" />
+
+        <label for="language" id="language-title"> Language: </label>
+
+        <select name="language" id="language">
+          <option value="null">Pick Language</option>
+          <% languages.forEach(language => { %>
+          <option value="<%= language %>"><%= language %></option>
+          <% }) %>
+        </select>
+
+        <label for="genres" id="genres-title">Genres:</label>
+
+        <input type="checkbox" name="mustIncludeMode" id="mustIncludeMode" />
+
+        <select name="genres" id="genres" multiple>
+          <% genres.forEach(genre => { %>
+          <option value="<%= genre %>"><%= genre.replace(/-/g, " "); %></option>
+          <% }) %>
+        </select>
+
+        <strong id="press-ctrl"> Press CTRL or ⌘ to select multiple. </strong>
+
+        <input type="submit" value="Search" id="submit" />
+      </form>
+
+      <a href="/"><button id="go-back">Go Back</button></a>
+    </main>
+  </body>
+</html>

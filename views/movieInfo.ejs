@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Info</title>
+  </head>
+  <body>
+    <main>
+      <h2>Movie Info:</h2>
+      <ul>
+        <li>id: <%= movie.id %></li>
+        <li>name: <%= movie.name %></li>
+        <li>genres: <%= movie.genres %></li>
+        <li>language: <%= movie.language %></li>
+      </ul>
+
+      <div><img src="<%=movie.image%>" alt=":(" height="256px" /></div>
+
+      <button id="go-back" onclick="window.history.back()">Go Back</button>
+    </main>
+  </body>
+</html>

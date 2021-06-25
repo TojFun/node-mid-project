@@ -1,0 +1,38 @@
+{
+  "genres": [
+    "Action",
+    "Adventure",
+    "Anime",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Espionage",
+    "Family",
+    "Fantasy",
+    "History",
+    "Horror",
+    "Legal",
+    "Medical",
+    "Music",
+    "Mystery",
+    "Romance",
+    "Science-Fiction",
+    "Supernatural",
+    "Thriller"
+  ],
+
+  "languages": [
+    "Arabic",
+    "Chinese",
+    "English",
+    "French",
+    "German",
+    "Hebrew",
+    "Hindi",
+    "Italian",
+    "Japanese",
+    "Spanish",
+    "Swedish",
+    "Turkish"
+  ]
+}

@@ -1,0 +1,127 @@
+:root {
+  font: 1em "Fira Sans", Helvetica, Arial, sans-serif;
+}
+
+/* buttons */
+button,
+input[type="button"],
+input[type="submit"] {
+  font: 2em sans-serif;
+  background-color: rgb(66, 124, 100);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: rgb(41, 110, 110);
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+  background-color: rgb(68, 116, 116);
+  outline: none;
+}
+
+/* general */
+
+main {
+  padding: 2%;
+}
+
+a {
+  color: #00b7ff;
+}
+
+/* login */
+.login main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  font-size: 2em;
+}
+.login form {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1em 1em;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "username-title username"
+    "password-title password"
+    "submit submit";
+}
+
+.login #username-title {
+  grid-area: username-title;
+}
+
+.login #username {
+  grid-area: username;
+}
+
+.login #password-title {
+  grid-area: password-title;
+}
+
+.login #password {
+  grid-area: password;
+}
+
+.login #submit {
+  grid-area: submit;
+}
+
+.login input[type="submit"] {
+  border-radius: 5% / 30%;
+}
+
+/* menu */
+.menu header {
+  position: relative;
+  /* display: flex; */
+}
+.menu .hello-user {
+  position: absolute;
+  display: inline;
+}
+
+.menu .movies-title {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-main {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5vw;
+}
+
+.menu-btns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.menu-btns button {
+  height: 2em;
+  width: 17ch;
+  border-radius: 5% / 20%;
+}
+
+/* Users Management Page*/
+.admin {
+  color: blue;
+}
+
+#go-back {
+  border-radius: 5% / 20%;
+}

@@ -1,0 +1,11 @@
+{
+  "movies": [
+    {
+      "id": 250,
+      "name": "My Movie",
+      "language": "English",
+      "genres": ["Anime", "Comedy", "Drama"],
+      "image": { "medium": "/images/no-image.png" }
+    }
+  ]
+}

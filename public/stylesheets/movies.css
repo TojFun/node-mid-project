@@ -1,0 +1,92 @@
+main {
+  padding-left: 2%;
+  font-size: 1.5em;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 2fr 0.3fr 1fr;
+  gap: 1em 0em;
+  grid-template-areas:
+    "name-title name"
+    "language-title language"
+    "genres-title mustIncludeMode"
+    "genres genres"
+    "press-ctrl press-ctrl"
+    "submit submit";
+  margin-bottom: 2%;
+  font-size: 1.2em;
+}
+
+#name-title {
+  grid-area: name-title;
+}
+
+#name {
+  grid-area: name;
+}
+
+#language-title {
+  grid-area: language-title;
+}
+
+#language {
+  grid-area: language;
+}
+
+#genres-title {
+  grid-area: genres-title;
+}
+
+#genres {
+  grid-area: genres;
+}
+
+#press-ctrl {
+  grid-area: press-ctrl;
+}
+
+#submit {
+  grid-area: submit;
+}
+
+input,
+#language {
+  border-radius: 1% / 15%;
+}
+
+#mustIncludeMode {
+  position: relative;
+  grid-area: mustIncludeMode;
+  /* width: 100%; */
+  /* height: 90%; */
+}
+
+#mustIncludeMode:hover::before {
+  content: "Must Include Mode";
+
+  position: absolute;
+  left: 200%;
+
+  color: rgba(0, 0, 0, 0.725);
+  font-weight: bold;
+  font-size: 2em;
+  white-space: nowrap;
+
+  animation: slidein 0.5s;
+}
+
+#mustIncludeMode:checked:hover::before {
+  color: rgba(0, 68, 255, 0.725);
+}
+
+/* animations */
+@keyframes slidein {
+  from {
+    transform: translateX(-15%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}

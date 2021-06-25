@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <script src="/javascripts/logout.js" defer></script>
+    <title>Menu</title>
+  </head>
+  <body class="menu">
+    <header>
+      <h4 class="hello-user">hello, <%= user.username %></h4>
+      <h1 class="movies-title">MOVIES</h1>
+    </header>
+
+    <main class="menu-main">
+      <div class="menu-btns">
+        <span class="search">
+          <a href="/search">
+            <button>Search for Movies</button>
+          </a>
+        </span>
+
+        <span class="create">
+          <a href="/create">
+            <button>Create New Movie</button>
+          </a>
+        </span>
+
+        <% if (user.role === 'admin') { %>
+        <span class="users">
+          <a href="/users">
+            <button>Edit Users</button>
+          </a>
+        </span>
+        <% } %>
+      </div>
+    </main>
+    <footer>
+      <button id="go-back" onclick="logout()">Log Out</button>
+    </footer>
+  </body>
+</html>

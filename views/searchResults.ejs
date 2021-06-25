@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
+    <title>Results</title>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <h2>
+          Results For:
+          <ul>
+            <% if (params.name) { %>
+            <li><%= params.name %></li>
+            <% } %> <% if (params.language) { %>
+            <li>Language: <%= params.language %></li>
+            <% } %> <% if (params.genres) { %>
+            <li>Genres: <%= params.genres %></li>
+            <% } %>
+          </ul>
+        </h2>
+      </div>
+    </header>
+    <main>
+      <div class="results">
+        <table border="1">
+          <tr>
+            <th>ID:</th>
+            <th>Name:</th>
+            <th>Similar Content:</th>
+          </tr>
+          <% movies.forEach(movie => { %>
+          <tr>
+            <td><%= movie.id %></td>
+            <td><a href="/results/<%= movie.id %>"><%= movie.name %> </a></td>
+            <td>
+              <ul>
+                <% movie.similarContent.forEach(show => { %>
+                <li><a href="/results/<%= show.id %>"><%=show.name%></a></li>
+                <%}) %>
+              </ul>
+            </td>
+          </tr>
+          <% }) %>
+        </table>
+      </div>
+
+      <a href="/search"><button id="go-back">Go Back</button></a>
+    </main>
+  </body>
+</html>

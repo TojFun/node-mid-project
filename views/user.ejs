@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <header><h1><%= title %></h1></header>
+
+    <main>
+      <form
+        action="/users/<%= title === 'Create User' ? 'create' : user.username %>"
+        method="POST"
+      >
+        <div class="username">
+          <label for="username">Username: </label>
+          <input type="text" name="username" id="username" placeholder="<%=
+          user.username %>" <% if (title === "Create User") { %> required <% }
+          %> />
+        </div>
+
+        <div class="password">
+          <label for="password">Password: </label>
+          <input type="password" name="password" id="password" <% if (title ===
+          "Create User") { %> required <% } %>/>
+        </div>
+
+        <% if (user.role !== "admin") { %>
+        <div class="actions">
+          <label for="actions">Actions: </label>
+          <input type="number" name="actions" id="actions" min="0"
+          placeholder="<%= user.actions %>" <% if (title === "Create User") { %>
+          required value="0" <% } %> />
+        </div>
+        <% } %>
+
+        <div class="role">
+          <label for="role">Role: </label>
+          <select name="role" id="role">
+            <% if (user.role === 'admin') { %>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+
+            <% } else { %>
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+            <% } %>
+          </select>
+        </div>
+
+        <input type="submit" value="Save" />
+
+        <% if (error) { %>
+        <p>Error: <%= error %></p>
+        <% } %>
+      </form>
+
+      <div class="back-btn">
+        <a href="/users"><button>Back</button></a>
+      </div>
+    </main>
+  </body>
+</html>

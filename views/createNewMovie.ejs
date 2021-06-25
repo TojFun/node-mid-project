@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/movies.css" />
+
+    <title>Create Movie</title>
+  </head>
+  <body class="create">
+    <main>
+      <h1>Create New Movie</h1>
+
+      <form action="/create" method="POST">
+        <label for="name" id="name-title">Name: </label>
+        <input type="text" name="name" id="name" required />
+
+        <label for="language" id="language-title"> Language: </label>
+
+        <select name="language" id="language" required>
+          <% languages.forEach(language => { %>
+          <option value="<%= language %>"><%= language %></option>
+          <% }) %>
+        </select>
+
+        <label for="genres" id="genres-title"> Genres:</label>
+
+        <select name="genres" id="genres" multiple required>
+          <% genres.forEach(genre => { %>
+          <option value="<%= genre %>"><%= genre.replace(/-/g, " "); %></option>
+          <% }) %>
+        </select>
+
+        <strong id="press-ctrl">Press CTRL or ⌘ to select multiple.</strong>
+
+        <input type="submit" value="Create Movie" id="submit" />
+      </form>
+
+      <% if (error) { %>
+      <h2>Error: <%= error %></h2>
+      <% } %>
+
+      <a href="/"><button id="go-back">Go Back</button></a>
+    </main>
+  </body>
+</html>
