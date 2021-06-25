@@ -20,8 +20,8 @@ exports.repeatEveryMidnight = (callback) => {
   );
   const msToMidnight = night.getTime() - now.getTime();
 
-  setTimeout(function () {
+  setTimeout(() => {
     callback();
-    repeatEveryMidnight();
+    this.repeatEveryMidnight(callback);
   }, msToMidnight);
 };

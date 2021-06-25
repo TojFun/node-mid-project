@@ -14,6 +14,9 @@ const createNewMovieRouter = require("./routes/createNewMovie");
 const searchMovies = require("./routes/searchMovies");
 const searchResults = require("./routes/searchResults");
 
+const date = require("./utils/date")
+const authentication = require("./services/authentication")
+
 const app = express();
 
 // view engine setup
@@ -78,4 +81,6 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+date.repeatEveryMidnight(authentication.resetCredits)
+ 
 module.exports = app;

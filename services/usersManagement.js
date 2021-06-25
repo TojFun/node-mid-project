@@ -41,6 +41,7 @@ exports.update = async (username, user) => {
     user = formatUser(user, userInJSON);
 
     users[index] = user;
+    
     return { users };
   });
 };

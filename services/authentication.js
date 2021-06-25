@@ -32,7 +32,7 @@ async function subtractCredit({ username, credits }) {
   return credits;
 }
 
-function resetCredits() {
+async function resetCredits() {
   await usersInterface.update(({ users }) => {
     users.forEach((user) => {
       user.credits = user.actions;
@@ -42,4 +42,4 @@ function resetCredits() {
   });
 }
 
-module.exports = { check, subtractCredit };
+module.exports = { check, subtractCredit, resetCredits };
