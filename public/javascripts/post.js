@@ -1,5 +1,5 @@
 async function post(userData, link) {
-  res = await fetch(link, {
+  const res = await fetch(link, {
     method: "POST",
     body: JSON.stringify(userData),
   });
