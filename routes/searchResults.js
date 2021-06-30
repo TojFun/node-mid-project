@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const users = require("../services/authentication");
 
+const users = require("../services/authentication");
 const search = require("../services/searchMovies");
 
 /* GET home page. */

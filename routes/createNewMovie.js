@@ -3,7 +3,7 @@ const router = express.Router();
 const createMovies = require("../services/createMovies");
 const users = require("../services/authentication");
 
-const { genresAndLanguages } = new JSONFile("genresAndLanguages");
+const { genresAndLanguages } = require("../models/jsonInterfaces");
 
 /* GET home page. */
 router.get("/", async function (req, res, next) {

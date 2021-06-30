@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  genresLanguages: genresLanguagesInterface,
+  genresAndLanguages: genresLanguagesInterface,
 } = require("../models/jsonInterfaces");
 
 router.get("/", async (req, res, next) => {
