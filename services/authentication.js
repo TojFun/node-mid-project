@@ -1,5 +1,4 @@
-const JSONFile = require("../models/jsonfile");
-const usersInterface = new JSONFile("users");
+const { users: usersInterface } = require("../models/jsonInterfaces");
 
 async function check({ username, password }) {
   const { users } = await usersInterface.get();

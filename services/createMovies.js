@@ -1,6 +1,4 @@
-const JSONFile = require("../models/jsonfile");
-const newMovies = new JSONFile("newMovies");
-
+const { newMovies } = require("../models/jsonInterfaces");
 const movies = require("../models/movies");
 
 exports.create = async ({ name, language, genres }) => {

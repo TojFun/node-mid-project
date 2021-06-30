@@ -1,5 +1,4 @@
-const JSONFile = require("../models/jsonfile");
-const usersJSON = new JSONFile("users");
+const { users: usersJSON } = require("../models/jsonInterfaces");
 const { getCurrentDate } = require("../utils/date.js");
 
 exports.getAll = async () => (await usersJSON.get()).users;
@@ -41,7 +40,7 @@ exports.update = async (username, user) => {
     user = formatUser(user, userInJSON);
 
     users[index] = user;
-    
+
     return { users };
   });
 };

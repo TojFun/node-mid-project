@@ -1,7 +1,8 @@
-const moviesInterface = require("../models/movies");
+const {
+  newMovies: customMoviesInterface,
+} = require("../models/jsonInterfaces");
 
-const JSONFile = require("../models/jsonfile");
-const customMoviesInterface = new JSONFile("newMovies");
+const moviesInterface = require("../models/movies");
 
 // Customizable:
 const maxMoviesSearches = Infinity;

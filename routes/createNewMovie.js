@@ -3,13 +3,12 @@ const router = express.Router();
 const createMovies = require("../services/createMovies");
 const users = require("../services/authentication");
 
-const JSONFile = require("../models/jsonfile");
-const genresInterface = new JSONFile("genresAndLanguages");
+const { genresAndLanguages } = new JSONFile("genresAndLanguages");
 
 /* GET home page. */
 router.get("/", async function (req, res, next) {
   const { error } = req.query;
-  const { genres, languages } = await genresInterface.get();
+  const { genres, languages } = await genresAndLanguages.get();
 
   res.render("createNewMovie", { genres, languages, error });
 });
