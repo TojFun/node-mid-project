@@ -14,8 +14,8 @@ const createNewMovieRouter = require("./routes/createNewMovie");
 const searchMovies = require("./routes/searchMovies");
 const searchResults = require("./routes/searchResults");
 
-const date = require("./utils/date")
-const authentication = require("./services/authentication")
+const date = require("./utils/date");
+const authentication = require("./services/authentication");
 
 const app = express();
 
@@ -30,6 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cookieParser());
+
 app.use(
   session({
     secret: "ofekswebsite",
@@ -41,13 +42,12 @@ app.use(
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(function (req, res, next) {
-  // console.log(req.session.user);
   if (
     (!req.session.user || req.session.user?.credits <= 0) &&
     !req.originalUrl.startsWith("/login")
-  ) {
+  )
     res.redirect("/login");
-  } else next();
+  else next();
 });
 
 // main routes:
@@ -81,6 +81,6 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-date.repeatEveryMidnight(authentication.resetCredits)
- 
+date.repeatEveryMidnight(authentication.resetCredits);
+
 module.exports = app;
