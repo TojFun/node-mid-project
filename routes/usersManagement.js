@@ -4,7 +4,6 @@ const router = express.Router();
 const usersManagement = require("../services/usersManagement");
 
 router.use((req, res, next) => {
-  console.log("doing that");
   if (req.session.user.role !== "admin") return res.redirect("/");
   next();
 });
@@ -17,24 +16,45 @@ router.get("/", async function (req, res, next) {
   res.render("usersManagement", { users, status });
 });
 
+/* Create User: */
+
+// GET the create user page:
+router.get("/create", async (req, res, next) => {
+  const { error } = req.query;
+
+  const title = "Create User";
+  const user = { role: null, username: "", credits: "" };
+
+  res.render("user", { title, user, error });
+});
+
+// POST new user to the server:
+router.post("/create", async (req, res, next) => {
+  const { body: user } = req;
+
+  try {
+    await usersManagement.create(user);
+    res.redirect("/users?status=created");
+  } catch (err) {
+    res.redirect(`/users/create?error=${err.message}`);
+  }
+});
+
+/* Update Users: */
+
 // GET specific user's edit page:
 router.get("/:username", async (req, res, next) => {
   const { error } = req.query;
   const { username } = req.params;
-  let user;
 
-  const title = username === "create" ? "Create User" : `Update ${username}`;
-  if (username === "create") {
-    user = { role: null, username: "", credits: "" };
-  } else {
-    user = await usersManagement.getByUsername(username);
+  const title = `Update ${username}`;
+  const user = await usersManagement.getByUsername(username);
 
-    if (user == null)
-      return res.render("error", {
-        message: `Couldn't find the user ${username}`,
-        error: {},
-      });
-  }
+  if (user == null)
+    return res.render("error", {
+      message: `Couldn't find the user ${username}`,
+      error: {},
+    });
 
   res.render("user", { title, user, error });
 });
@@ -45,13 +65,8 @@ router.post("/:username", async (req, res, next) => {
   const { body: user } = req;
 
   try {
-    if (username === "create") {
-      await usersManagement.create(user);
-      res.redirect("/users?status=created");
-    } else {
-      await usersManagement.update(username, user);
-      res.redirect("/users?status=updated");
-    }
+    await usersManagement.update(username, user);
+    res.redirect("/users?status=updated");
   } catch (err) {
     res.redirect(`/users/${username}?error=${err.message}`);
   }

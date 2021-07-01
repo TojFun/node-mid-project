@@ -21,6 +21,7 @@ exports.create = async (user) => {
     checkIfUsernameTaken(users, user.username, -1);
 
     user["date-created"] = getCurrentDate();
+    user.credits = parseInt(user.actions);
     users.push(user);
 
     return { users };
@@ -53,6 +54,8 @@ function checkIfUsernameTaken(users, username, index) {
     )
   )
     throw new Error("username is already taken");
+  else if (username === "create")
+    throw new Error("you can't call a user 'create'");
 }
 
 function formatUser(user, userInJSON) {
