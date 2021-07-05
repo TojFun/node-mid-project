@@ -122,6 +122,6 @@ a {
   color: blue;
 }
 
-#go-back {
+.back-btn {
   border-radius: 5% / 20%;
 }

@@ -49,15 +49,15 @@
           </select>
         </div>
 
-        <input type="submit" value="Save" />
+        <input type="submit" class="back-btn" value="Save" />
 
         <% if (error) { %>
-        <p>Error: <%= error %></p>
+        <div>Error: <%= error %></div>
         <% } %>
       </form>
 
-      <div class="back-btn">
-        <a href="/users"><button>Back</button></a>
+      <div class="back">
+        <a href="/users"><button class="back-btn">Back</button></a>
       </div>
     </main>
   </body>
