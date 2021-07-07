@@ -79,7 +79,7 @@ a {
 }
 
 .login input[type="submit"] {
-  border-radius: 5% / 30%;
+  border-radius: 3% / 30%;
 }
 
 /* menu */
@@ -111,7 +111,8 @@ a {
   width: 100%;
 }
 
-.menu-btns button {
+.menu-btns button,
+.long-btn {
   height: 2em;
   width: 17ch;
   border-radius: 5% / 20%;
@@ -124,4 +125,16 @@ a {
 
 .back-btn {
   border-radius: 5% / 20%;
+}
+
+@media screen and (max-width: 700px) {
+  .menu-btns {
+    flex-direction: column;
+    font-size: 3em;
+    align-items: center;
+  }
+
+  .menu-btns button {
+    margin: 3vh 0;
+  }
 }
